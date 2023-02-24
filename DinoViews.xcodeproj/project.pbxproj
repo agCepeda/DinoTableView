@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F2217F2C29A9402A00B72938 /* DinoTableView.docc in Sources */ = {isa = PBXBuildFile; fileRef = F2217F2B29A9402A00B72938 /* DinoTableView.docc */; };
-		F2217F3229A9402A00B72938 /* DinoTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2217F2729A9402A00B72938 /* DinoTableView.framework */; };
+		F2217F2C29A9402A00B72938 /* DinoViews.docc in Sources */ = {isa = PBXBuildFile; fileRef = F2217F2B29A9402A00B72938 /* DinoViews.docc */; };
+		F2217F3229A9402A00B72938 /* DinoViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2217F2729A9402A00B72938 /* DinoViews.framework */; };
 		F2217F3729A9402A00B72938 /* DinoTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2217F3629A9402A00B72938 /* DinoTableViewTests.swift */; };
 		F2217F3829A9402A00B72938 /* DinoTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = F2217F2A29A9402A00B72938 /* DinoTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2D398F329A94DB800CEC376 /* DinoTableViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D398F229A94DB800CEC376 /* DinoTableViewComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +25,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F2217F2729A9402A00B72938 /* DinoTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DinoTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2217F2729A9402A00B72938 /* DinoViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DinoViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2217F2A29A9402A00B72938 /* DinoTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DinoTableView.h; sourceTree = "<group>"; };
-		F2217F2B29A9402A00B72938 /* DinoTableView.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = DinoTableView.docc; sourceTree = "<group>"; };
+		F2217F2B29A9402A00B72938 /* DinoViews.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = DinoViews.docc; sourceTree = "<group>"; };
 		F2217F3129A9402A00B72938 /* DinoTableViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DinoTableViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2217F3629A9402A00B72938 /* DinoTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoTableViewTests.swift; sourceTree = "<group>"; };
+		F2D398F229A94DB800CEC376 /* DinoTableViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoTableViewComponent.swift; sourceTree = "<group>"; usesTabs = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2217F3229A9402A00B72938 /* DinoTableView.framework in Frameworks */,
+				F2217F3229A9402A00B72938 /* DinoViews.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +55,7 @@
 		F2217F1D29A9402A00B72938 = {
 			isa = PBXGroup;
 			children = (
-				F2217F2929A9402A00B72938 /* DinoTableView */,
+				F2217F2929A9402A00B72938 /* DinoViews */,
 				F2217F3529A9402A00B72938 /* DinoTableViewTests */,
 				F2217F2829A9402A00B72938 /* Products */,
 			);
@@ -62,19 +64,20 @@
 		F2217F2829A9402A00B72938 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F2217F2729A9402A00B72938 /* DinoTableView.framework */,
+				F2217F2729A9402A00B72938 /* DinoViews.framework */,
 				F2217F3129A9402A00B72938 /* DinoTableViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F2217F2929A9402A00B72938 /* DinoTableView */ = {
+		F2217F2929A9402A00B72938 /* DinoViews */ = {
 			isa = PBXGroup;
 			children = (
 				F2217F2A29A9402A00B72938 /* DinoTableView.h */,
-				F2217F2B29A9402A00B72938 /* DinoTableView.docc */,
+				F2217F2B29A9402A00B72938 /* DinoViews.docc */,
+				F2D398F229A94DB800CEC376 /* DinoTableViewComponent.swift */,
 			);
-			path = DinoTableView;
+			path = DinoViews;
 			sourceTree = "<group>";
 		};
 		F2217F3529A9402A00B72938 /* DinoTableViewTests */ = {
@@ -99,9 +102,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		F2217F2629A9402A00B72938 /* DinoTableView */ = {
+		F2217F2629A9402A00B72938 /* DinoViews */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F2217F3B29A9402A00B72938 /* Build configuration list for PBXNativeTarget "DinoTableView" */;
+			buildConfigurationList = F2217F3B29A9402A00B72938 /* Build configuration list for PBXNativeTarget "DinoViews" */;
 			buildPhases = (
 				F2217F2229A9402A00B72938 /* Headers */,
 				F2217F2329A9402A00B72938 /* Sources */,
@@ -112,9 +115,9 @@
 			);
 			dependencies = (
 			);
-			name = DinoTableView;
+			name = DinoViews;
 			productName = DinoTableView;
-			productReference = F2217F2729A9402A00B72938 /* DinoTableView.framework */;
+			productReference = F2217F2729A9402A00B72938 /* DinoViews.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		F2217F3029A9402A00B72938 /* DinoTableViewTests */ = {
@@ -166,7 +169,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F2217F2629A9402A00B72938 /* DinoTableView */,
+				F2217F2629A9402A00B72938 /* DinoViews */,
 				F2217F3029A9402A00B72938 /* DinoTableViewTests */,
 			);
 		};
@@ -194,7 +197,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2217F2C29A9402A00B72938 /* DinoTableView.docc in Sources */,
+				F2217F2C29A9402A00B72938 /* DinoViews.docc in Sources */,
+				F2D398F329A94DB800CEC376 /* DinoTableViewComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +215,7 @@
 /* Begin PBXTargetDependency section */
 		F2217F3429A9402A00B72938 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F2217F2629A9402A00B72938 /* DinoTableView */;
+			target = F2217F2629A9402A00B72938 /* DinoViews */;
 			targetProxy = F2217F3329A9402A00B72938 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -394,6 +398,7 @@
 		F2217F3F29A9402A00B72938 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -409,6 +414,7 @@
 		F2217F4029A9402A00B72938 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -433,7 +439,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F2217F3B29A9402A00B72938 /* Build configuration list for PBXNativeTarget "DinoTableView" */ = {
+		F2217F3B29A9402A00B72938 /* Build configuration list for PBXNativeTarget "DinoViews" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F2217F3C29A9402A00B72938 /* Debug */,

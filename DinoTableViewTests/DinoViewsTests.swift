@@ -6,9 +6,9 @@
 //
 
 import XCTest
-@testable import DinoTableView
+@testable import DinoViews
 
-class DinoTableViewTests: XCTestCase {
+class DinoViewsTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
