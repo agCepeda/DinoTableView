@@ -1,6 +1,6 @@
 //
-//  DinoTableViewTests.swift
-//  DinoTableViewTests
+//  DinoViewsTests.swift
+//  DinoViewsTests
 //
 //  Created by Agustin Cepeda on 24/02/23.
 //
