@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53A75B8925B286F0A20906E8 /* CellPositionCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A75A72191084542FB04013 /* CellPositionCalculator.swift */; };
 		F2217F2C29A9402A00B72938 /* DinoViews.docc in Sources */ = {isa = PBXBuildFile; fileRef = F2217F2B29A9402A00B72938 /* DinoViews.docc */; };
 		F2217F3229A9402A00B72938 /* DinoViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2217F2729A9402A00B72938 /* DinoViews.framework */; };
 		F2217F3729A9402A00B72938 /* DinoViewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2217F3629A9402A00B72938 /* DinoViewsTests.swift */; };
 		F2217F3829A9402A00B72938 /* DinoViews.h in Headers */ = {isa = PBXBuildFile; fileRef = F2217F2A29A9402A00B72938 /* DinoViews.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F2D398F329A94DB800CEC376 /* DinoTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D398F229A94DB800CEC376 /* DinoTableView.swift */; };
+		F2D3991F29A9613700CEC376 /* DinoTableViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3991E29A9613700CEC376 /* DinoTableViewLayout.swift */; };
+		F2D3992229A963DE00CEC376 /* DinoTableView+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3992129A963DE00CEC376 /* DinoTableView+Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,12 +28,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		53A75A72191084542FB04013 /* CellPositionCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellPositionCalculator.swift; sourceTree = "<group>"; };
 		F2217F2729A9402A00B72938 /* DinoViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DinoViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2217F2A29A9402A00B72938 /* DinoViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DinoViews.h; sourceTree = "<group>"; };
 		F2217F2B29A9402A00B72938 /* DinoViews.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = DinoViews.docc; sourceTree = "<group>"; };
 		F2217F3129A9402A00B72938 /* DinoViewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DinoViewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2217F3629A9402A00B72938 /* DinoViewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoViewsTests.swift; sourceTree = "<group>"; };
 		F2D398F229A94DB800CEC376 /* DinoTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoTableView.swift; sourceTree = "<group>"; usesTabs = 0; };
+		F2D3991E29A9613700CEC376 /* DinoTableViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoTableViewLayout.swift; sourceTree = "<group>"; };
+		F2D3992129A963DE00CEC376 /* DinoTableView+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DinoTableView+Models.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +81,7 @@
 			children = (
 				F2217F2A29A9402A00B72938 /* DinoViews.h */,
 				F2217F2B29A9402A00B72938 /* DinoViews.docc */,
-				F2D398F229A94DB800CEC376 /* DinoTableView.swift */,
+				F2D3992029A9639D00CEC376 /* TableView */,
 			);
 			path = DinoViews;
 			sourceTree = "<group>";
@@ -86,6 +92,17 @@
 				F2217F3629A9402A00B72938 /* DinoViewsTests.swift */,
 			);
 			path = DinoTableViewTests;
+			sourceTree = "<group>";
+		};
+		F2D3992029A9639D00CEC376 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				F2D398F229A94DB800CEC376 /* DinoTableView.swift */,
+				F2D3991E29A9613700CEC376 /* DinoTableViewLayout.swift */,
+				F2D3992129A963DE00CEC376 /* DinoTableView+Models.swift */,
+				53A75A72191084542FB04013 /* CellPositionCalculator.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,8 +214,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2D3991F29A9613700CEC376 /* DinoTableViewLayout.swift in Sources */,
+				F2D3992229A963DE00CEC376 /* DinoTableView+Models.swift in Sources */,
 				F2217F2C29A9402A00B72938 /* DinoViews.docc in Sources */,
 				F2D398F329A94DB800CEC376 /* DinoTableView.swift in Sources */,
+				53A75B8925B286F0A20906E8 /* CellPositionCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
