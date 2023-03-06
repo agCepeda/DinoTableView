@@ -25,6 +25,15 @@ class DinoViewsTests: XCTestCase {
     let columnHeaderHeight: CGFloat = 60.0
     let rowHeight: CGFloat = 50.0
     let rowCount: Int = 2
+    let incrementsX: [CGFloat] = [100.0, 300.0, 600.0, 750.0, 970.0]
+    let incrementsY: [CGFloat] = [60.0, 110.0, 160.0]
+
+    // test: CGRect(x: 150, y:80, width 600.0, height: 100)
+    // expected: (1, 1), (4, 2)
+
+    // CGRect(x: 0, y: 0, width: 600.0, height: 150)),
+    // CalculateBounds(left: 0, top:0, right: 2, bottom: 2)
+
 
     let expectedContentSize = CGSize(width: 970.0, height: 160.0)
     let expectedCalculation: [[CGRect]] = [
@@ -51,10 +60,18 @@ class DinoViewsTests: XCTestCase {
       ]
     ]
 
-    let positionCalculator = CellPositionCalculatorImpl(columnWidths: columnWidths, columnHeaderHeight: columnHeaderHeight, rowHeight: rowHeight, rowCount: rowCount)
+    let positionCalculator = CellPositionCalculatorImpl(columnWidths: columnWidths, headerRowHeight: columnHeaderHeight, contentRowHeight: rowHeight, rowCount: rowCount)
 
     XCTAssertEqual(positionCalculator.calculate(), expectedCalculation, "Error in calculation")
     XCTAssertEqual(positionCalculator.contentSize(), expectedContentSize, "Error in calculation")
+    XCTAssertEqual(positionCalculator.incrementsX, incrementsX, "Error in calculation")
+    XCTAssertEqual(positionCalculator.incrementsY, incrementsY, "Error in calculation")
+
+    XCTAssertEqual(positionCalculator.calculateBounds(by: CGRect(x: 150, y: 80, width: 820.0, height: 100)), CalculateBounds(left: 1, top:1, right: 4, bottom: 2), "Error in calculation")
+    XCTAssertEqual(positionCalculator.calculateBounds(by: CGRect(x: 0, y: 0, width: 600.0, height: 150)), CalculateBounds(left: 0, top:0, right: 2, bottom: 2), "Error in calculation")
+    XCTAssertEqual(positionCalculator.calculateBounds(by: CGRect(x: 0, y: 0, width: 1000.0, height: 200)), CalculateBounds(left: 0, top:0, right: 4, bottom: 2), "Error in calculation")
+    XCTAssertEqual(positionCalculator.calculateBounds(by: CGRect(x: 150, y: 80, width: 1000.0, height: 200)), CalculateBounds(left: 1, top:1, right: 4, bottom: 2), "Error in calculation")
+
   }
 
   func testPerformanceExample() throws {

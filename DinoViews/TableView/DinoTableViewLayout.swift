@@ -7,11 +7,14 @@
 
 import UIKit
 
+class LayoutAttributes: UICollectionViewLayoutAttributes {
+}
+
 public class DinoTableViewLayout: UICollectionViewLayout {
 
   public weak var dataSource: DinoTableViewDataSource? = nil
-  public weak var delegate: DinoTableViewDelegate? = nil
 
+  public var settings: LayoutSettings? = nil
   private var positionCalculator: CellPositionCalculatorImpl!
 
   private var cachedFrames = [[CGRect]]()
@@ -26,17 +29,11 @@ public class DinoTableViewLayout: UICollectionViewLayout {
   }
 
   public override var collectionViewContentSize: CGSize {
-
     return positionCalculator.contentSize()
   }
 
   public override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-    let originBound = IndexPath.init()
-    let upperBound = IndexPath.init()
-
-//    cachedAttributes[indexPath.section].map { $ }
-
-    return super.layoutAttributesForElements(in: rect)
+    return cachedAttributes.flatMap { $0.filter { $0.frame.intersects(rect) }}
   }
 
   public override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
@@ -54,31 +51,30 @@ public class DinoTableViewLayout: UICollectionViewLayout {
 
   private func calculateAndSavePositions() {
     let frames = positionCalculator.calculate()
-    let attributes = frames.map { $0.map { rect -> UICollectionViewLayoutAttributes in
-      let attrs = UICollectionViewLayoutAttributes()
-      attrs.frame = rect
-      return attrs
-    }}
+    let attributes = frames.enumerated().map { (row, elements) in
+      elements.enumerated().map { (column, rect) -> UICollectionViewLayoutAttributes in
+        let attrs = LayoutAttributes(forCellWith: IndexPath(item: column, section: row))
+        attrs.frame = rect
+        return attrs
+      }
+    }
 
     cachedFrames = frames
     cachedAttributes = attributes
   }
 
   private func setupCalculator() {
-    guard positionCalculator == nil else { return }
+    guard positionCalculator == nil, let settings = settings else { return }
 
-    guard let columns = dataSource?.getColumns(),
-          let rowCount = dataSource?.getRowCount(),
-          let columnWidths = dataSource?.getLayoutSettings().columnWidths,
-          let rowHeight = dataSource?.getLayoutSettings().rowHeight,
-          let columnHeaderHeight = dataSource?.getLayoutSettings().columnHeaderHeight
-    else { fatalError() }
+    let columnWidths = settings.columns.map { $0.width }
+    let headerRowHeight = settings.headerRowHeight
+    let contentRowHeight = settings.contentRowHeight
 
-    guard columnWidths.count == columns.count else { fatalError() }
+    guard let rowCount = dataSource?.getRowCount() else { fatalError() }
 
     positionCalculator = CellPositionCalculatorImpl(columnWidths: columnWidths,
-                                                    columnHeaderHeight: columnHeaderHeight,
-                                                    rowHeight: rowHeight,
+                                                    headerRowHeight: headerRowHeight,
+                                                    contentRowHeight: contentRowHeight,
                                                     rowCount: rowCount)
   }
 

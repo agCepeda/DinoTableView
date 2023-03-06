@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53A753F390898476A1660738 /* UIKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A75DAC773FA5BFA2BEB142 /* UIKit+Extensions.swift */; };
 		53A75B8925B286F0A20906E8 /* CellPositionCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A75A72191084542FB04013 /* CellPositionCalculator.swift */; };
 		F2217F2C29A9402A00B72938 /* DinoViews.docc in Sources */ = {isa = PBXBuildFile; fileRef = F2217F2B29A9402A00B72938 /* DinoViews.docc */; };
 		F2217F3229A9402A00B72938 /* DinoViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2217F2729A9402A00B72938 /* DinoViews.framework */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		53A75A72191084542FB04013 /* CellPositionCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellPositionCalculator.swift; sourceTree = "<group>"; };
+		53A75DAC773FA5BFA2BEB142 /* UIKit+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extensions.swift"; sourceTree = "<group>"; };
 		F2217F2729A9402A00B72938 /* DinoViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DinoViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2217F2A29A9402A00B72938 /* DinoViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DinoViews.h; sourceTree = "<group>"; };
 		F2217F2B29A9402A00B72938 /* DinoViews.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = DinoViews.docc; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				F2217F2A29A9402A00B72938 /* DinoViews.h */,
 				F2217F2B29A9402A00B72938 /* DinoViews.docc */,
 				F2D3992029A9639D00CEC376 /* TableView */,
+				53A75DAC773FA5BFA2BEB142 /* UIKit+Extensions.swift */,
 			);
 			path = DinoViews;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				F2217F2C29A9402A00B72938 /* DinoViews.docc in Sources */,
 				F2D398F329A94DB800CEC376 /* DinoTableView.swift in Sources */,
 				53A75B8925B286F0A20906E8 /* CellPositionCalculator.swift in Sources */,
+				53A753F390898476A1660738 /* UIKit+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

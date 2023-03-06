@@ -8,17 +8,32 @@
 import Foundation
 import CoreGraphics
 
-public protocol ColumnModel where Self: Codable {}
+public struct ColumnModel {
+  /// Column width
+  public var name: String
+  /// Column width
+  public var width: CGFloat
 
-public protocol RowModel where Self: Codable {
-  
+  public init(name: String, width: CGFloat) {
+    self.name = name
+    self.width = width
+  }
+}
+
+public struct RowModel {
+  public init() {}
 }
 
 public struct LayoutSettings {
+  public var columns: [ColumnModel]
   /// Column Header height
-  public var columnHeaderHeight: CGFloat
-  /// Column  widths
-  public var columnWidths: [CGFloat]
+  public var headerRowHeight: CGFloat
   /// Row  height
-  public var rowHeight: CGFloat
+  public var contentRowHeight: CGFloat
+
+  public init(columns: [ColumnModel], headerRowHeight: CGFloat, contentRowHeight: CGFloat) {
+    self.columns = columns
+    self.headerRowHeight = headerRowHeight
+    self.contentRowHeight = contentRowHeight
+  }
 }
