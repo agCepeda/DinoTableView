@@ -20,20 +20,24 @@ public struct ColumnModel {
   }
 }
 
-public struct RowModel {
-  public init() {}
-}
+public class RowModel: NSObject {}
 
-public struct LayoutSettings {
+public struct Settings {
   public var columns: [ColumnModel]
   /// Column Header height
   public var headerRowHeight: CGFloat
   /// Row  height
   public var contentRowHeight: CGFloat
+  /// Row  height
+  public var stickyHeader: Bool
+  /// Row  height
+  public var stickyColumn: Bool
 
-  public init(columns: [ColumnModel], headerRowHeight: CGFloat, contentRowHeight: CGFloat) {
+  public init(columns: [ColumnModel], headerRowHeight: CGFloat, contentRowHeight: CGFloat, stickyHeader: Bool, stickyColumn: Bool) {
     self.columns = columns
     self.headerRowHeight = headerRowHeight
     self.contentRowHeight = contentRowHeight
+    self.stickyHeader = stickyHeader
+    self.stickyColumn = stickyColumn
   }
 }

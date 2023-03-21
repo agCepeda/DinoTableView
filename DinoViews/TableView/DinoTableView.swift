@@ -7,34 +7,7 @@
 
 import UIKit
 
-
-
-public class TestCell: UICollectionViewCell {
-
-  lazy var textLabel: UILabel = {
-    let label = UILabel()
-
-    addSubview(label)
-
-    label.translatesAutoresizingMaskIntoConstraints = false
-    label.textColor = .red
-
-    label
-
-    NSLayoutConstraint.activate([
-      label.topAnchor.constraint(equalTo: self.topAnchor),
-      label.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-      label.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-      label.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-    ])
-
-    return label
-  }()
-
-}
-
-public protocol DinoTableViewDelegate: AnyObject {
-}
+public protocol DinoTableViewDelegate: AnyObject {}
 
 public protocol DinoTableViewDataSource: AnyObject {
   func getRowCount() -> Int
@@ -42,65 +15,60 @@ public protocol DinoTableViewDataSource: AnyObject {
 }
 
 public class DinoTableView: UIView {
-  
-  let layout = DinoTableViewLayout()
 
-  lazy var collectionView: UICollectionView = {
-    let flowLayout = UICollectionViewFlowLayout()
-    flowLayout.scrollDirection = .vertical
-
-    let view = UICollectionView(frame: frame, collectionViewLayout: layout)
-    addSubview(view)
-
-    view.translatesAutoresizingMaskIntoConstraints = false
-
-    NSLayoutConstraint.activate([
-      view.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-      view.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-      view.widthAnchor.constraint(equalTo: self.widthAnchor),
-      view.heightAnchor.constraint(equalTo: self.heightAnchor),
-    ])
-
-    return view
-  }()
-  
+  private var collectionView: UICollectionView!
   public var dataSource: DinoTableViewDataSource? {
-    get { layout.dataSource }
-    set { layout.dataSource = newValue }
+    didSet { setupTableViewLayout() }
   }
-  public var layoutSettings: LayoutSettings? {
-    get { layout.settings }
-    set { layout.settings = newValue }
+  public var layoutSettings: Settings? {
+    didSet { setupTableViewLayout() }
   }
 
   public init() {
     super.init(frame: .zero)
     setup()
   }
-  
+
   required init?(coder: NSCoder) {
     super.init(coder: coder)
     setup()
   }
 
   private func setup() {
-    backgroundColor = .systemIndigo
-    collectionView.backgroundColor = .systemGreen
+    backgroundColor = UIColor(red: 0.212, green: 0.212, blue: 0.212, alpha: 1)
 
+    setupCollectionView()
+  }
 
-    collectionView.register(TestCell.self, forCellWithReuseIdentifier: "TestCell")
+  private func setupCollectionView() {
+    let flowLayout = UICollectionViewFlowLayout()
+    flowLayout.scrollDirection = .vertical
+
+    collectionView = UICollectionView(frame: frame, collectionViewLayout: flowLayout)
+    collectionView.backgroundColor = .clear
+    collectionView.bounces = false
+    collectionView.translatesAutoresizingMaskIntoConstraints = false
+
+    collectionView.register(ContentCell.self, forCellWithReuseIdentifier: ContentCell.identifier)
+    collectionView.register(ColumnHeaderCell.self, forCellWithReuseIdentifier: ColumnHeaderCell.identifier)
 
     collectionView.dataSource = self
     collectionView.delegate = self
 
+    addSubview(collectionView)
+
+    NSLayoutConstraint.activate([
+      collectionView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+      collectionView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+      collectionView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+      collectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+    ])
   }
 
-  // Only override draw() if you perform custom drawing.
-  // An empty implementation adversely affects performance during animation.
-  public override func draw(_ rect: CGRect) {
-    // Drawing code
+  private func setupTableViewLayout() {
+    guard let settings = layoutSettings, let dataSource = dataSource else { return }
+    collectionView.collectionViewLayout = DinoTableViewLayout(settings: settings, dataSource: dataSource)
   }
-  
 }
 
 extension DinoTableView: UICollectionViewDataSource {
@@ -113,16 +81,22 @@ extension DinoTableView: UICollectionViewDataSource {
   }
 
   public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TestCell", for: indexPath) as? TestCell
-      else { return UICollectionViewCell() }
+    if indexPath.section == 0 {
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColumnHeaderCell.identifier, for: indexPath) as? ColumnHeaderCell
+        else { return UICollectionViewCell() }
 
-    cell.textLabel.text = layoutSettings?.columns[indexPath.item].name
-    cell.backgroundColor = indexPath.section == 0 ? .red : .white
-    cell.textLabel.textColor = indexPath.section == 0 ? .white : .lightGray
-    cell.borderColor = .darkGray
-    cell.borderWidth = 0.5
+      cell.textLabel.text = layoutSettings?.columns[indexPath.item].name
 
-    return cell
+      return cell
+    } else {
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentCell.identifier, for: indexPath) as? ContentCell
+        else { return UICollectionViewCell() }
+
+      cell.textLabel.text = "(\(indexPath.section), \(indexPath.item))"
+      cell.applyStyle(indexPath: indexPath)
+
+      return cell
+    }
   }
 }
 

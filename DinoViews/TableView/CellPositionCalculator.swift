@@ -4,13 +4,6 @@
 
 import CoreGraphics
 
-struct CalculateBounds : Equatable {
-  var left: Int
-  var top: Int
-  var right: Int
-  var bottom: Int
-}
-
 protocol CellPositionCalculator {
   func calculateRow(yPosition: CGFloat, rowIndex: Int) -> [CGRect]
   func calculate() -> [[CGRect]]
@@ -66,34 +59,6 @@ public class CellPositionCalculatorImpl: CellPositionCalculator {
     }
 
     return frames
-  }
-
-  func calculateBounds(by rect: CGRect) -> CalculateBounds {
-    var left: Int?
-    var right: Int?
-    for idx in 0..<incrementsX.count {
-      if left == nil, incrementsX[idx] >= rect.origin.x {
-        left = idx
-      }
-      if right == nil, incrementsX[idx] >= rect.origin.x + rect.size.width {
-        right = idx
-      }
-    }
-
-    var top: Int?
-    var bottom: Int?
-    for idx in 0..<incrementsY.count {
-      if top == nil, incrementsY[idx] >= rect.origin.y {
-        top = idx
-      }
-      if bottom == nil, incrementsY[idx] >= rect.origin.y + rect.size.height {
-        bottom = idx
-      }
-    }
-    return CalculateBounds(left: left ?? 0,
-                           top: top ?? 0,
-                           right: right ?? incrementsX.count - 1,
-                           bottom: bottom ?? incrementsY.count - 1)
   }
 
   private func advanceCalculation(yPosition: inout CGFloat, rowIndex: inout Int) -> [CGRect] {
