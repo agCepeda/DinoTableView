@@ -8,15 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		53A753F390898476A1660738 /* UIKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A75DAC773FA5BFA2BEB142 /* UIKit+Extensions.swift */; };
-		53A75B8925B286F0A20906E8 /* CellPositionCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A75A72191084542FB04013 /* CellPositionCalculator.swift */; };
-		53A75D083B642299B574EAA7 /* DinoTableView+Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A75FE461338908F2D8D464 /* DinoTableView+Cells.swift */; };
+		53A75493DC41C119C2A53AB9 /* CellPositionCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A75F03DAAFD11F05340B6F /* CellPositionCalculator.swift */; };
+		53A75651956D0EF71587463E /* GridTableRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A75D6CA3A4810FEB03A881 /* GridTableRowCell.swift */; };
+		53A756763A98BD59C10AE17E /* GridTableBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A751D162F9F335DD7ECAD8 /* GridTableBaseCell.swift */; };
+		53A7596FBF846FE513E264D6 /* GridTableColumnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A7565D66686BB5DD6720B2 /* GridTableColumnCell.swift */; };
+		53A75A27E9C7B4075FBEF8FA /* ColumnModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A753F597F182F2CAB7236E /* ColumnModel.swift */; };
+		53A75D7EB6C77B1B3ADC46AF /* GridTableView+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A75293D0E9BC53CBD3D3C9 /* GridTableView+UICollectionViewDataSource.swift */; };
+		53A75DF53D50AB40C18B904E /* ColumnTypeRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A7513FBFE6195A4F632091 /* ColumnTypeRenderer.swift */; };
 		F2217F2C29A9402A00B72938 /* DinoViews.docc in Sources */ = {isa = PBXBuildFile; fileRef = F2217F2B29A9402A00B72938 /* DinoViews.docc */; };
 		F2217F3229A9402A00B72938 /* DinoViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2217F2729A9402A00B72938 /* DinoViews.framework */; };
 		F2217F3729A9402A00B72938 /* DinoViewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2217F3629A9402A00B72938 /* DinoViewsTests.swift */; };
 		F2217F3829A9402A00B72938 /* DinoViews.h in Headers */ = {isa = PBXBuildFile; fileRef = F2217F2A29A9402A00B72938 /* DinoViews.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F2D398F329A94DB800CEC376 /* DinoTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D398F229A94DB800CEC376 /* DinoTableView.swift */; };
-		F2D3991F29A9613700CEC376 /* DinoTableViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3991E29A9613700CEC376 /* DinoTableViewLayout.swift */; };
-		F2D3992229A963DE00CEC376 /* DinoTableView+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3992129A963DE00CEC376 /* DinoTableView+Models.swift */; };
+		F2D398F329A94DB800CEC376 /* GridTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D398F229A94DB800CEC376 /* GridTableView.swift */; };
+		F2D3991F29A9613700CEC376 /* GridTableView+UICollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D3991E29A9613700CEC376 /* GridTableView+UICollectionViewLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,17 +34,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		53A75A72191084542FB04013 /* CellPositionCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellPositionCalculator.swift; sourceTree = "<group>"; };
+		53A7513FBFE6195A4F632091 /* ColumnTypeRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnTypeRenderer.swift; sourceTree = "<group>"; };
+		53A751D162F9F335DD7ECAD8 /* GridTableBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridTableBaseCell.swift; sourceTree = "<group>"; };
+		53A75293D0E9BC53CBD3D3C9 /* GridTableView+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GridTableView+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		53A753F597F182F2CAB7236E /* ColumnModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnModel.swift; sourceTree = "<group>"; };
+		53A7565D66686BB5DD6720B2 /* GridTableColumnCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridTableColumnCell.swift; sourceTree = "<group>"; };
+		53A75D6CA3A4810FEB03A881 /* GridTableRowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridTableRowCell.swift; sourceTree = "<group>"; };
 		53A75DAC773FA5BFA2BEB142 /* UIKit+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extensions.swift"; sourceTree = "<group>"; };
-		53A75FE461338908F2D8D464 /* DinoTableView+Cells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DinoTableView+Cells.swift"; sourceTree = "<group>"; };
+		53A75F03DAAFD11F05340B6F /* CellPositionCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellPositionCalculator.swift; sourceTree = "<group>"; };
 		F2217F2729A9402A00B72938 /* DinoViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DinoViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2217F2A29A9402A00B72938 /* DinoViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DinoViews.h; sourceTree = "<group>"; };
 		F2217F2B29A9402A00B72938 /* DinoViews.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = DinoViews.docc; sourceTree = "<group>"; };
 		F2217F3129A9402A00B72938 /* DinoViewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DinoViewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2217F3629A9402A00B72938 /* DinoViewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoViewsTests.swift; sourceTree = "<group>"; };
-		F2D398F229A94DB800CEC376 /* DinoTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoTableView.swift; sourceTree = "<group>"; usesTabs = 0; };
-		F2D3991E29A9613700CEC376 /* DinoTableViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoTableViewLayout.swift; sourceTree = "<group>"; };
-		F2D3992129A963DE00CEC376 /* DinoTableView+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DinoTableView+Models.swift"; sourceTree = "<group>"; };
+		F2D398F229A94DB800CEC376 /* GridTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridTableView.swift; sourceTree = "<group>"; usesTabs = 0; };
+		F2D3991E29A9613700CEC376 /* GridTableView+UICollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GridTableView+UICollectionViewLayout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53A75454A4A5BB370D7EE83E /* Columns */ = {
+			isa = PBXGroup;
+			children = (
+				53A7513FBFE6195A4F632091 /* ColumnTypeRenderer.swift */,
+				53A753F597F182F2CAB7236E /* ColumnModel.swift */,
+			);
+			path = Columns;
+			sourceTree = "<group>";
+		};
+		53A757D5B4F401FC5314C416 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				53A751D162F9F335DD7ECAD8 /* GridTableBaseCell.swift */,
+				53A7565D66686BB5DD6720B2 /* GridTableColumnCell.swift */,
+				53A75D6CA3A4810FEB03A881 /* GridTableRowCell.swift */,
+				53A75F03DAAFD11F05340B6F /* CellPositionCalculator.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		F2217F1D29A9402A00B72938 = {
 			isa = PBXGroup;
 			children = (
@@ -102,11 +130,11 @@
 		F2D3992029A9639D00CEC376 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				F2D398F229A94DB800CEC376 /* DinoTableView.swift */,
-				F2D3991E29A9613700CEC376 /* DinoTableViewLayout.swift */,
-				F2D3992129A963DE00CEC376 /* DinoTableView+Models.swift */,
-				53A75A72191084542FB04013 /* CellPositionCalculator.swift */,
-				53A75FE461338908F2D8D464 /* DinoTableView+Cells.swift */,
+				F2D398F229A94DB800CEC376 /* GridTableView.swift */,
+				F2D3991E29A9613700CEC376 /* GridTableView+UICollectionViewLayout.swift */,
+				53A75293D0E9BC53CBD3D3C9 /* GridTableView+UICollectionViewDataSource.swift */,
+				53A75454A4A5BB370D7EE83E /* Columns */,
+				53A757D5B4F401FC5314C416 /* Cells */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -220,13 +248,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2D3991F29A9613700CEC376 /* DinoTableViewLayout.swift in Sources */,
-				F2D3992229A963DE00CEC376 /* DinoTableView+Models.swift in Sources */,
+				F2D3991F29A9613700CEC376 /* GridTableView+UICollectionViewLayout.swift in Sources */,
 				F2217F2C29A9402A00B72938 /* DinoViews.docc in Sources */,
-				F2D398F329A94DB800CEC376 /* DinoTableView.swift in Sources */,
-				53A75B8925B286F0A20906E8 /* CellPositionCalculator.swift in Sources */,
+				F2D398F329A94DB800CEC376 /* GridTableView.swift in Sources */,
 				53A753F390898476A1660738 /* UIKit+Extensions.swift in Sources */,
-				53A75D083B642299B574EAA7 /* DinoTableView+Cells.swift in Sources */,
+				53A75D7EB6C77B1B3ADC46AF /* GridTableView+UICollectionViewDataSource.swift in Sources */,
+				53A75DF53D50AB40C18B904E /* ColumnTypeRenderer.swift in Sources */,
+				53A75A27E9C7B4075FBEF8FA /* ColumnModel.swift in Sources */,
+				53A756763A98BD59C10AE17E /* GridTableBaseCell.swift in Sources */,
+				53A7596FBF846FE513E264D6 /* GridTableColumnCell.swift in Sources */,
+				53A75651956D0EF71587463E /* GridTableRowCell.swift in Sources */,
+				53A75493DC41C119C2A53AB9 /* CellPositionCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

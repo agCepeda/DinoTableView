@@ -7,20 +7,22 @@
 
 import UIKit
 
-public class DinoTableViewLayout: UICollectionViewLayout {
+public class GridTableViewLayout: UICollectionViewLayout {
 
-  private var settings: Settings
-  private var dataSource: DinoTableViewDataSource
   private var calculator: CellPositionCalculator
 
-  private var cachedFrames = [[CGRect]]()
   private var cachedAttributes = [[UICollectionViewLayoutAttributes]]()
+  private var cachedFrames = [[CGRect]]()
+  private var stickyHeader: Bool
+  private var showHeader: Bool
 
-  init(settings: Settings, dataSource: DinoTableViewDataSource) {
-    self.settings = settings
-    self.dataSource = dataSource
-    self.calculator = DinoTableViewLayout.setupCalculator(settings: settings, dataSource: dataSource)
-
+  init(columnWidths: [CGFloat], headerRowHeight: CGFloat, contentRowHeight: CGFloat, rowCount: Int, showHeader: Bool, stickyHeader: Bool) {
+    self.stickyHeader = stickyHeader
+    self.showHeader = showHeader
+    self.calculator = CellPositionCalculatorImpl(columnWidths: columnWidths,
+                                                 headerRowHeight: headerRowHeight,
+                                                 contentRowHeight: contentRowHeight,
+                                                 rowCount: rowCount, showHeader: showHeader)
     super.init()
 
     calculateAndSavePositions()
@@ -49,18 +51,6 @@ public class DinoTableViewLayout: UICollectionViewLayout {
   public override func prepare() {
     super.prepare()
     updateItemsIfNeeded()
-  }
-
-  private static func setupCalculator(settings: Settings, dataSource: DinoTableViewDataSource) -> CellPositionCalculator {
-    let columnWidths = settings.columns.map { $0.width }
-    let headerRowHeight = settings.headerRowHeight
-    let contentRowHeight = settings.contentRowHeight
-    let rowCount = dataSource.getRowCount()
-
-    return CellPositionCalculatorImpl(columnWidths: columnWidths,
-                                      headerRowHeight: headerRowHeight,
-                                      contentRowHeight: contentRowHeight,
-                                      rowCount: rowCount)
   }
 
   private func calculateAndSavePositions() {
@@ -92,7 +82,7 @@ public class DinoTableViewLayout: UICollectionViewLayout {
   private func updateItemsIfNeeded() {
     guard let contentOffset = collectionView?.contentOffset else { return }
 
-    if settings.stickyHeader {
+    if stickyHeader && showHeader {
       cachedAttributes[0].forEach { attributes in
         attributes.frame = CGRect(x: attributes.frame.origin.x,
                                   y: contentOffset.y,

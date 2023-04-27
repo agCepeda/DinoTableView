@@ -7,14 +7,21 @@
 		<key>DinoTableView.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>7</integer>
 		</dict>
 		<key>DinoViews.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>6</integer>
 		</dict>
-		<key>DinoViewsTests.xcscheme</key>
+		<key>DinoViewsTests.testCalculation.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false />
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>DinoViewsTests.testColumnType.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false />
@@ -25,6 +32,11 @@
 		<dict>
 			<key>isShown</key>
 			<false />
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>DinoViewsTests.xcscheme</key>
+		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>

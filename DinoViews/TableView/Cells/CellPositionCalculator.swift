@@ -15,20 +15,39 @@ public class CellPositionCalculatorImpl: CellPositionCalculator {
   let headerRowHeight: CGFloat
   let contentRowHeight: CGFloat
   let rowCount: Int
-  let fullWidth: CGFloat
-  let incrementsX: [CGFloat]
-  let incrementsY: [CGFloat]
+  let showHeader: Bool
+  private let fullWidth: CGFloat
+  private let fullHeight: CGFloat
 
-  init(columnWidths: [CGFloat], headerRowHeight: CGFloat, contentRowHeight: CGFloat, rowCount: Int) {
+  init(columnWidths: [CGFloat], headerRowHeight: CGFloat, contentRowHeight: CGFloat, rowCount: Int, showHeader: Bool) {
     self.columnWidths = columnWidths
     self.headerRowHeight = headerRowHeight
     self.contentRowHeight = contentRowHeight
     self.rowCount = rowCount
+    self.showHeader = showHeader
 
     self.fullWidth = columnWidths.reduce(0, +)
-    self.incrementsX = columnWidths.reduce([CGFloat]()) { $0 + [$1 + ($0.last ?? 0)] }
-    self.incrementsY = ([headerRowHeight] + Array(repeating: contentRowHeight, count: rowCount))
-                                             .reduce([CGFloat]()) { $0 + [$1 + ($0.last ?? 0)] }
+    self.fullHeight = CGFloat(rowCount) * contentRowHeight + (showHeader ? headerRowHeight : 0)
+  }
+
+  func contentSize() -> CGSize {
+    CGSize(width: fullWidth, height: fullHeight)
+  }
+
+  func calculate() -> [[CGRect]] {
+    var frames = [[CGRect]]()
+    var yPosition: CGFloat = 0
+    var rowIndex: Int = 0
+
+    if showHeader {
+      frames.append(advanceCalculation(yPosition: &yPosition, rowIndex: &rowIndex))
+    }
+
+    for _ in 0..<rowCount {
+      frames.append(advanceCalculation(yPosition: &yPosition, rowIndex: &rowIndex))
+    }
+
+    return frames
   }
 
   func calculateRow(yPosition: CGFloat, rowIndex: Int) -> [CGRect] {
@@ -44,23 +63,6 @@ public class CellPositionCalculatorImpl: CellPositionCalculator {
     return rowFrame
   }
 
-  func contentSize() -> CGSize {
-    CGSize(width: incrementsX.last ?? 0.0, height: incrementsY.last ?? 0.0)
-  }
-
-  func calculate() -> [[CGRect]] {
-    var frames = [[CGRect]]()
-    var yPosition: CGFloat = 0
-    var rowIndex: Int = 0
-
-    frames.append(advanceCalculation(yPosition: &yPosition, rowIndex: &rowIndex))
-    for _ in 0..<rowCount {
-      frames.append(advanceCalculation(yPosition: &yPosition, rowIndex: &rowIndex))
-    }
-
-    return frames
-  }
-
   private func advanceCalculation(yPosition: inout CGFloat, rowIndex: inout Int) -> [CGRect] {
     let rowFrame = calculateRow(yPosition: yPosition, rowIndex: rowIndex)
     yPosition = yPosition + getHeightBy(rowIndex: rowIndex)
@@ -69,6 +71,6 @@ public class CellPositionCalculatorImpl: CellPositionCalculator {
   }
 
   private func getHeightBy(rowIndex: Int) -> CGFloat {
-    rowIndex == 0 ? headerRowHeight : contentRowHeight
+    rowIndex == 0 && showHeader ? headerRowHeight : contentRowHeight
   }
 }
